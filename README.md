@@ -23,3 +23,10 @@ git clone https://github.com/szajakubiak/publish-to-mqtt
 cd publish-to-mqtt/
 pip install -r requirements.txt
 ```
+
+## Usage
+After activating the virtual environment can run the script from command line passing the MQTT topic and message as parameters:
+``` bash
+source mqttvenv/bin/activate
+python3 publish.py -t "cmnd/tasmota/POWER" -c "OFF"
+```
