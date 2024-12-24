@@ -9,6 +9,7 @@ sudo apt install python3 venv git
 
 * Create and activate venv
 ``` bash
+cd ~
 python3 -m venv mqttvenv
 source mqttvenv/bin/activate
 ```
