@@ -39,7 +39,7 @@ crontab -e
 
 If you run the editor for the first time you need to choose the default text editor. If you don't have any preferred editor select **nano**. Then scroll all the way down in the file. Here you can add a line to automate your device. As an example let's add a line which will send the command **OFF** to the device each day at 23:00:
 ``` bash
-0 23 * * * ~/mqttvenv/bin/python3 publish.py -t "cmnd/tasmota/POWER" -c "OFF"
+0 23 * * * ~/mqttvenv/bin/python3 ~/publish-to-mqtt/publish.py -t "cmnd/tasmota/POWER" -c "OFF"
 ```
 
 If you use **nano* as a text editor press Ctrl+o to save and Ctrl+x to exit.
