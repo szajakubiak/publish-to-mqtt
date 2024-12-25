@@ -25,6 +25,8 @@ cd publish-to-mqtt/
 pip install -r requirements.txt
 ```
 
+* Edit the **passwords.py** file with address and login to your MQTT broker.
+
 ## Usage
 After activating the virtual environment can run the script from command line passing the MQTT topic and message as parameters:
 ``` bash
