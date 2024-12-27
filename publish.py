@@ -7,10 +7,9 @@ MQTT_BROKER = passwords.broker
 MQTT_PORT = passwords.port
 MQTT_USERNAME = passwords.username
 MQTT_PASSWORD = passwords.password
-DEBUG = False
 
 
-def send_mqtt_message(topic, command):
+def send_mqtt_message(topic, command, debug):
     client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1)
 
     if MQTT_USERNAME and MQTT_PASSWORD:
@@ -20,7 +19,7 @@ def send_mqtt_message(topic, command):
         client.connect(MQTT_BROKER, MQTT_PORT, 60)
         client.publish(topic, command, retain=True)
         client.disconnect()
-        if DEBUG:
+        if debug:
             print(f"Sent {command} to topic {topic}")
     except Exception as e:
         print(f"Failed to send MQTT message: {e}")
@@ -37,7 +36,11 @@ if __name__ == "__main__":
         required=True,
         help="Command to send (ON or OFF)",
     )
+    parser.add_argument(
+        "--debug", "-d", required=False, default=False, help="Print debug messages"
+    )
     args = parser.parse_args()
     topic = args.topic
     command = args.command
-    send_mqtt_message(topic, command)
+    debug = args.debug
+    send_mqtt_message(topic, command, debug)
