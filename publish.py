@@ -18,7 +18,7 @@ def send_mqtt_message(topic, command):
 
     try:
         client.connect(MQTT_BROKER, MQTT_PORT, 60)
-        client.publish(topic, command)
+        client.publish(topic, command, retain=True)
         client.disconnect()
         if DEBUG:
             print(f"Sent {command} to topic {topic}")
