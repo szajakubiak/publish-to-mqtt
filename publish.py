@@ -28,7 +28,8 @@ def send_mqtt_message(topic, command, debug):
         if debug:
             print(f"Sent {command} to topic {topic}")
     except Exception as e:
-        print(f"Failed to send MQTT message: {e}")
+        if debug:
+            print(f"Failed to send MQTT message: {e}")
         sys.exit(1)
 
 
