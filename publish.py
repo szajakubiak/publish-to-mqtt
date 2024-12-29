@@ -14,6 +14,12 @@ def send_mqtt_message(topic, command, debug):
 
     if MQTT_USERNAME and MQTT_PASSWORD:
         client.username_pw_set(MQTT_USERNAME, MQTT_PASSWORD)
+        if debug:
+            print(f"Username: {MQTT_USERNAME}")
+            print(f"Password: {MQTT_PASSWORD}")
+    else:
+        if debug:
+            print("Connecting without username and password")
 
     try:
         client.connect(MQTT_BROKER, MQTT_PORT, 60)
