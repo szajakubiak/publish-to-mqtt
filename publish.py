@@ -7,6 +7,7 @@ MQTT_BROKER = passwords.broker
 MQTT_PORT = passwords.port
 MQTT_USERNAME = passwords.username
 MQTT_PASSWORD = passwords.password
+QOS = 1
 
 
 def send_mqtt_message(topic, command, debug):
@@ -23,7 +24,7 @@ def send_mqtt_message(topic, command, debug):
 
     try:
         client.connect(MQTT_BROKER, MQTT_PORT, 60)
-        client.publish(topic, command, retain=True)
+        client.publish(topic, command, qos=QOS, retain=True)
         client.disconnect()
         if debug:
             print(f"Sent {command} to topic {topic}")
