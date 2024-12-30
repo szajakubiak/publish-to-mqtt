@@ -47,6 +47,3 @@ If you run the editor for the first time you need to choose the default text edi
 If you use **nano* as a text editor press Ctrl+o to save and Ctrl+x to exit.
 
 You can use [this site](https://crontab.guru/) to learn how to create cron schedules. Note that we used a direct link to the Python 3 binary file inside the virtual environment. This way we can run the script without activating the venv.
-
-## TODO
-* Update script to use [new API](https://eclipse.dev/paho/files/paho.mqtt.python/html/migrations.html).
